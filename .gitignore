@@ -1,0 +1,3 @@
+test_local
+.*.sw[a-z]
+*.py.bak*
