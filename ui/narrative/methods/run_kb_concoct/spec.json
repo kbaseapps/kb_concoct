@@ -1,0 +1,313 @@
+{
+    "ver": "1.3.4",
+    "authors": [
+        "seanjungbluth"
+    ],
+    "contact": "https://www.kbase.us/support/",
+    "visible" : true,
+    "categories": ["active","assembly","communities"],
+    "widgets": {
+        "input": "kbaseNarrativeMethodInput",
+        "output" : "no-display"
+    },
+    "parameters": [
+        {
+            "id": "assembly_ref",
+            "optional": false,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": [ "" ],
+            "field_type": "text",
+            "text_options": {
+                "valid_ws_types" : ["KBaseGenomes.ContigSet", "KBaseGenomeAnnotations.Assembly"]
+            }
+        },
+        {
+            "id": "binned_contig_name",
+            "optional": false,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": [ "" ],
+            "field_type" : "text",
+            "text_options" : {
+                "valid_ws_types" : [ "KBaseMetagenomes.BinnedContigs" ],
+                "is_output_name" : true
+            }
+        },
+        {
+            "id" : "reads_list",
+            "optional" : false,
+            "advanced" : false,
+            "allow_multiple" : true,
+            "default_values" : [ "" ],
+            "field_type" : "text",
+            "text_options" : {
+              "valid_ws_types" : ["KBaseFile.PairedEndLibrary", "KBaseFile.SingleEndLibrary", "KBaseAssembly.PairedEndLibrary", "KBaseAssembly.SingleEndLibrary"]
+            }
+        },
+        {
+            "id": "read_mapping_tool",
+            "optional": true,
+            "advanced": true,
+            "allow_multiple": false,
+            "default_values": [ "bowtie2_default" ],
+            "field_type": "dropdown",
+            "dropdown_options": {
+                "options": [
+                    {
+                        "value": "bbmap_fast",
+                        "display": "BBMap (fast)",
+                        "id": "bbmap_fast",
+                        "ui_name": "BBMap (fast)"
+                    },
+                    {
+                        "value": "bbmap_default",
+                        "display": "BBMap (default)",
+                        "id": "bbmap_default",
+                        "ui_name": "BBMap (default)"
+                    },
+                    {
+                        "value": "bbmap_very_sensitive",
+                        "display": "BBMap (very-sensitive)",
+                        "id": "bbmap_very_sensitive",
+                        "ui_name": "BBMap (very-sensitive)"
+                    },
+                    {
+                        "value": "bowtie2_default",
+                        "display": "Bowtie2 (default)",
+                        "id": "bowtie2_default",
+                        "ui_name": "Bowtie2 (default)"
+                    },
+                    {
+                        "value": "bowtie2_very_sensitive",
+                        "display": "Bowtie2 (very-sensitive)",
+                        "id": "bowtie2_very_sensitive",
+                        "ui_name": "Bowtie2 (very-sensitive)"
+                    },
+                    {
+                        "value": "hisat2",
+                        "display": "HISAT2",
+                        "id": "hisat2",
+                        "ui_name": "HISAT2"
+                    },
+                    {
+                        "value": "minimap2",
+                        "display": "minimap2",
+                        "id": "minimap2",
+                        "ui_name": "minimap2"
+                    }
+                ]
+            }
+        },
+        {
+          "id": "min_contig_length",
+          "optional": true,
+          "advanced": true,
+          "allow_multiple": false,
+          "default_values": [ 2500 ],
+          "field_type": "text",
+          "text_options": {
+              "min_int" : 1000,
+              "validate_as" : "int"
+            }
+        },
+        {
+            "id": "contig_split_size",
+            "optional": true,
+            "advanced": true,
+            "allow_multiple": false,
+            "default_values": [ 10000 ],
+            "field_type": "text",
+            "text_options": {
+                "min_int" : 5000,
+                "validate_as" : "int"
+            }
+        },
+        {
+            "id": "contig_split_overlap",
+            "optional": true,
+            "advanced": true,
+            "allow_multiple": false,
+            "default_values": [ 0 ],
+            "field_type": "text",
+            "text_options": {
+                "min_int" : 0,
+                "validate_as" : "int"
+            }
+        },
+        {
+          "id": "kmer_size",
+          "optional": true,
+          "advanced": true,
+          "allow_multiple": false,
+          "default_values": [ 4 ],
+          "field_type": "text",
+          "text_options": {
+              "min_int" : 2,
+              "max_int" : 6,
+              "validate_as" : "int"
+            }
+        },
+        {
+          "id": "max_clusters_for_vgmm",
+          "optional": true,
+          "advanced": true,
+          "allow_multiple": false,
+          "default_values": [ 400 ],
+          "field_type": "text",
+          "text_options": {
+              "min_int" : 100,
+              "max_int" : 800,
+              "validate_as" : "int"
+            }
+        },
+        {
+          "id": "max_iterations_for_vgmm",
+          "optional": true,
+          "advanced": true,
+          "allow_multiple": false,
+          "default_values": [ 500 ],
+          "field_type": "text",
+          "text_options": {
+              "min_int" : 50,
+              "max_int" : 2000,
+              "validate_as" : "int"
+            }
+        },
+        {
+          "id": "total_percentage_pca",
+          "optional": true,
+          "advanced": true,
+          "allow_multiple": false,
+          "default_values": [ 90 ],
+          "field_type": "text",
+          "text_options": {
+              "min_int" : 10,
+              "max_int" : 100,
+              "validate_as" : "int"
+            }
+        },
+        {
+          "id": "no_cov_normalization",
+          "optional": true,
+          "advanced": true,
+          "allow_multiple": false,
+          "default_values": [ " " ],
+          "field_type": "checkbox",
+          "checkbox_options": {
+              "checked_value": "--no_cov_normalization",
+              "unchecked_value": " "
+            }
+        },
+        {
+          "id": "no_total_coverage",
+          "optional": true,
+          "advanced": true,
+          "allow_multiple": false,
+          "default_values": [ " " ],
+          "field_type": "checkbox",
+          "checkbox_options": {
+              "checked_value": "--no_total_coverage",
+              "unchecked_value": " "
+            }
+        }
+    ],
+    "behavior": {
+        "service-mapping": {
+            "url": "",
+            "name": "kb_concoct",
+            "method": "run_kb_concoct",
+            "input_mapping": [
+                {
+                    "narrative_system_variable": "workspace",
+                    "target_property": "workspace_name"
+                },
+                {
+                    "input_parameter": "assembly_ref",
+                    "target_type_transform": "resolved-ref",
+                    "target_property": "assembly_ref"
+                },
+                {
+                    "input_parameter": "binned_contig_name",
+                    "target_property": "binned_contig_name"
+                },
+                {
+                    "input_parameter": "reads_list",
+                    "target_type_transform": "list<ref>",
+                    "target_property": "reads_list"
+                },
+                {
+                    "input_parameter": "read_mapping_tool",
+                    "target_property": "read_mapping_tool"
+                },
+                {
+                    "input_parameter": "min_contig_length",
+                    "target_property": "min_contig_length"
+                },
+                {
+                    "input_parameter": "contig_split_size",
+                    "target_property": "contig_split_size"
+                },
+                {
+                    "input_parameter": "contig_split_overlap",
+                    "target_property": "contig_split_overlap"
+                },
+                {
+                    "input_parameter": "kmer_size",
+                    "target_property": "kmer_size"
+                },
+                {
+                    "input_parameter": "max_clusters_for_vgmm",
+                    "target_property": "max_clusters_for_vgmm"
+                },
+                {
+                    "input_parameter": "max_iterations_for_vgmm",
+                    "target_property": "max_iterations_for_vgmm"
+                },
+                {
+                    "input_parameter": "total_percentage_pca",
+                    "target_property": "total_percentage_pca"
+                },
+                {
+                    "input_parameter": "no_cov_normalization",
+                    "target_property": "no_cov_normalization"
+                },
+                {
+                    "input_parameter": "no_total_coverage",
+                    "target_property": "no_total_coverage"
+                }
+            ],
+            "output_mapping": [
+                {
+                    "narrative_system_variable": "workspace",
+                    "target_property": "wsName"
+                },
+                {
+                    "service_method_output_path": [0, "result_directory"],
+                    "target_property": "result_directory"
+                },
+                {
+                    "service_method_output_path": [0,"binned_contig_obj_ref"],
+                    "target_property": "binned_contig_obj_ref"
+                },
+                {
+                    "service_method_output_path": [0,"binned_contig_obj_ref"],
+                    "target_property": "objRef"
+                },
+                {
+                    "service_method_output_path": [0, "report_name"],
+                    "target_property": "report_name"
+                },
+                {
+                    "service_method_output_path": [0, "report_ref"],
+                    "target_property": "report_ref"
+                },
+                {
+                    "constant_value": "16",
+                    "target_property": "report_window_line_height"
+                }
+            ]
+        }
+    },
+    "job_id_output_field": "docker"
+}

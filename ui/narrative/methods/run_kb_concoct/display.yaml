@@ -1,0 +1,127 @@
+#
+# define display information
+#
+name     : Bin Contigs using CONCOCT - v1.1
+subtitle : Group assembled metagenomic contigs into lineages (Bins) using depth-of-coverage and nucleotide composition
+tooltip  : Group metagenomic contigs into genome bins using depth-of-coverage and nucleotide composition
+
+icon: concoct.png
+
+screenshots: []
+
+#
+# define a set of similar methods that might be useful to the user
+#
+suggestions:
+    apps:
+        related:
+            [kb_maxbin, kbase-metabat, kb_cocacola, kb_das_tool]
+        next:
+            [kb_Msuite, MetaAnnot]
+    methods:
+        related:
+            []
+        next:
+            ["kb_Msuite.run_checkM_lineage_wf"]
+
+#
+# Configure the display and description of parameters
+#
+parameters :
+    assembly_ref :
+        ui-name : Assembly
+        short-hint : Metagenome assembly object
+        long-hint  : Metagenome assembly that you want to bin
+
+    binned_contig_name :
+        ui-name : Output Bins
+        short-hint : Output BinnedContig object name
+        long-hint  : The name of the resulting bin object
+
+    reads_list :
+        ui-name : Reads
+        short-hint : A list of reads object (PairedEndLibrary/SingleEndLibrary) upon which CONCOCT will be run
+        long-hint  : A list of reads object (PairedEndLibrary/SingleEndLibrary) upon which CONCOCT will be run
+
+    read_mapping_tool :
+        ui-name : Read Mapping Tool
+        short-hint : tool to use for read mapping (default bowtie2)
+        long-hint  : tool to use for read mapping - options BBmap (fast), BBMap (default), BBMap (very-sensitive), Bowtie2 (default), Bowtie2 (very-sensitive), HISAT2, minimap2 - (default bowtie2 default mode)
+
+    min_contig_length :
+        ui-name : Minimum Contig Length (>1000bp)
+        short-hint : minimum contig length (default 2500bp)
+        long-hint  : minimum contig length must be less than 1000bp
+
+    contig_split_size :
+        ui-name : Contig Split Size (>=5000bp)
+        short-hint : contig split size (default 10000bp)
+        long-hint  : split contigs longer than this value into chunks this size during binning
+
+    contig_split_overlap :
+        ui-name : Contig Split Overlap (>=0bp)
+        short-hint : contig split overlap (default 0bp)
+        long-hint  : split contig overlap to use for binning input
+
+    kmer_size :
+        ui-name : Kmer Length
+        short-hint : kmer length (default 4)
+        long-hint  : kmer length (default 4)
+
+    max_clusters_for_vgmm :
+        ui-name : Maximum Number of Clusters for VGMM
+        short-hint : maximum number of clusters for VGMM (default 400)
+        long-hint  : maximum number of clusters for VGMM (default 400)
+
+    max_iterations_for_vgmm :
+        ui-name : Maximum Number of Iterations for VGMM
+        short-hint : maximum number of iterations for VGMM (default 500)
+        long-hint  : maximum number of iterations for VGMM (default 500)
+
+    total_percentage_pca :
+        ui-name : Percent of Total PCA Used
+        short-hint : percentage of variance explained by the principal components of the combined data (default 90)
+        long-hint  : percentage of variance explained by the principal components of the combined data (default 90)
+
+    no_cov_normalization :
+        ui-name : Skip Coverage Normalization
+        short-hint : skip coverage normalization step (default false)
+        long-hint  : skip coverage normalization step (default false)
+
+    no_total_coverage :
+        ui-name : Skip Using Total Coverage
+        short-hint : skip adding total coverage to the covergae data matrix (default false)
+        long-hint  : skip adding total coverage to the covergae data matrix (default false)
+
+description : |
+    <p>CONCOCT clusters metagenomic contigs into different "bins", each of which should correspond to a putative genome.</p>
+    <p>CONCOCT uses nucleotide composition information and source strain abundance (measured by depth-of-coverage by aligning the reads to the contigs) to perform binning.</p>
+    <p>CONCOCT takes a metagenome assembly and the reads that produced the assembly and organizes the contigs into putative genomes, called "bins". CONCOCT uses nucleotide composition information and depth of coverage information to perform binning. </p>
+    <p><hr></p>
+    <p><b>Configuration:</b></p>
+    <p><b><i>Assembly Object:</i></b> The Assembly object is a collection of assembled genome fragments, called "contigs".  These are the items that CONCOCT will bin.  Currently only a single Metagenome Assembly object is accepted by the CONCOCT App.</p>
+    <p><b><i>Input BinnedContig Object Name:</i></b> The BinnedContig Object represents the directory of binned contigs created by CONCOCT. This object can be used for downstream analysis</p>
+    <p><b><i>Read Library Object:</i></b> The read libraries are aligned to the assembly using a selected read mapper, and provide the abundance information for each contig that roughly follows the species abundance.</p>
+    <p><b><i>Minimum Contig Length:</i></b> Contigs that are too short may slow down analysis and not give statistically meaningful nucleotide composition profiles.  A value of 2500 bp is a reasonable cutoff, but as low as 1000 bp can be used.</p>
+    <p><b><i>Contig Split Size:</i></b> Contigs are split before clustering to minimize the bias imposed by very large contigs. A value of 5000-10000 bp is a reasonable cutoff.</p>
+    <p><b><i>Contig Split Overlap:</i></b> Contigs split before clustering can have varying degrees of overlap.  A value of 0 is most often used.</p>
+    <p><b><i>Kmer Length:</i></b> Size of the kmers used during profiling.  A default value of 4 is reasonable to start with. Note: adjusting the kmer length will impact speed.</p>
+    <p><hr></p>
+    <p><b>Output:</b></p>
+    <p><b><i>Output BinnedContig Object Name:</i></b>The BinnedContig Object represents the directory of binned contigs created by CONCOCT. This object can be used for downstream analysis.</p>
+    <p><b><i>Output Bin Summary Report:</i></b>The number of bins produced, the number of contigs that were binned and the total number of contigs in the assembly.</p>
+    <p><b><i>Downloadable files:</i></b> The enitre output of the CONCOCT run may be downloaded as a zip file. This zip file also contains a table of read-depth coverage per contig ("*.depth.txt")</p>
+    <p><hr></p>
+    <p><i>Implemented for KBase by <a href="mailto:sjungbluth@lbl.gov">Sean Jungbluth(sjungbluth@lbl.gov)</a></i></p>
+
+publications:
+    -
+        pmid : 25218180
+        display-text : |
+            Alneberg J, Bjarnason BS, de Bruijn I, Schirmer M, Quick J, Ijaz UZ, Lahti L, Loman NJ, Andersson AF, Quince C. Binning metagenomic contigs by coverage and composition. Nature Methods. 2014;11: 1144-1146. doi:10.1038/nmeth.3103
+        link: https://doi.org/10.1038/nmeth.3103
+
+    -
+        display-text : |
+            CONCOCT source:
+        link: https://github.com/BinPro/CONCOCT
