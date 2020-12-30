@@ -1,3 +1,4 @@
 test_local
 .*.sw[a-z]
 *.py.bak*
+.DS_Store
