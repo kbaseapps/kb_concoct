@@ -37,7 +37,7 @@ class ConcoctUtil:
     CONCOCT_BASE_PATH = '/kb/deployment/bin/CONCOCT'
     BINNER_RESULT_DIRECTORY = 'concoct_output_dir'
     BINNER_BIN_RESULT_DIR = 'final_bins'
-    MAPPING_THREADS = 16
+    MAPPING_THREADS = 4
     BBMAP_MEM = '30g'
     MAX_NODES = 6  # for KBParallels
 
@@ -480,6 +480,9 @@ class ConcoctUtil:
             sorted_bam = self.convert_sam_to_sorted_and_indexed_bam(sam)
 
             sorted_bam_file_list.append(sorted_bam)
+            log("Removing fastq")
+            os.remove(os.path.join(self.scratch, fastq))
+            print(os.listdir(self.scratch))
 
         return sorted_bam_file_list
 
