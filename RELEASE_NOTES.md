@@ -7,6 +7,11 @@ ToDo
 * Add different ways to extract coverage (e.g. jgi_summarize_bam_contig_depths vs coverM, vs ?)
 * Update documentation and inline comments
 
+
+1.3.5
+-----
+* cleanup of transient fastq files to lower hard disk fingerprint
+
 1.3.4
 -----
 * samtools and bbmap now installed via docker

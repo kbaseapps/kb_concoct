@@ -37,7 +37,7 @@ class ConcoctUtil:
     CONCOCT_BASE_PATH = '/kb/deployment/bin/CONCOCT'
     BINNER_RESULT_DIRECTORY = 'concoct_output_dir'
     BINNER_BIN_RESULT_DIR = 'final_bins'
-    MAPPING_THREADS = 4
+    MAPPING_THREADS = 16
     BBMAP_MEM = '30g'
     MAX_NODES = 6  # for KBParallels
 
