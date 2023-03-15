@@ -23,7 +23,7 @@ RUN git clone https://github.com/BinPro/CONCOCT && cd /CONCOCT && \
 
 WORKDIR /kb/module/lib/kb_concoct/bin/
 
-RUN wget https://sourceforge.net/projects/bbmap/files/latest/download && tar -xvf download
+RUN wget --no-check-certificate https://sourceforge.net/projects/bbmap/files/latest/download && tar -xvf download
 
 RUN wget https://github.com/lh3/minimap2/releases/download/v2.17/minimap2-2.17.tar.bz2 && tar -xvf minimap2-* && cd minimap2* && make && cd ../ && rm minimap2-2.17.tar.bz2
 

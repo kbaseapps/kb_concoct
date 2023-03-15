@@ -480,6 +480,9 @@ class ConcoctUtil:
             sorted_bam = self.convert_sam_to_sorted_and_indexed_bam(sam)
 
             sorted_bam_file_list.append(sorted_bam)
+            log("Removing fastq")
+            # remove fastq
+            os.remove(os.path.join(self.scratch, fastq))
 
         return sorted_bam_file_list
 

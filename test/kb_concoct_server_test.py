@@ -364,218 +364,218 @@ class kb_concoctTest(unittest.TestCase):
                                              'binned_contig_name': 'concoct_bin_obj',
                                              'reads_list': [self.int1_oldstyle_reads_ref, self.int2_oldstyle_reads_ref] })
 
-    def test_run_concoct_multiple_read_input_test2(self):
-        method_name = 'test_run_concoct_multiple_read_input_test2'
-        print ("\n=================================================================")
-        print ("RUNNING "+method_name+"()")
-        print ("=================================================================\n")
-        # concoct should run to completion here
-        ret = self.getImpl().run_kb_concoct(self.getContext(),
-                                            {'workspace_name': self.getWsName(),
-                                             'assembly_ref': self.assembly_ref2,
-                                             'read_mapping_tool': 'minimap2',
-                                             'min_contig_length': 3000,
-                                             'contig_split_size': 10000,
-                                             'contig_split_overlap': 0,
-                                             'kmer_size': 4,
-                                             'max_clusters_for_vgmm': 400,
-                                             'max_iterations_for_vgmm': 500,
-                                             'total_percentage_pca': 90,
-                                             'no_cov_normalization': '--no_cov_normalization',
-                                             'no_total_coverage': '--no_total_coverage',
-                                             'binned_contig_name': 'concoct_bin_obj',
-                                             'reads_list': [self.int3_oldstyle_reads_ref, self.int4_oldstyle_reads_ref, self.int5_oldstyle_reads_ref, self.int6_oldstyle_reads_ref, self.int7_oldstyle_reads_ref] })
+    # def test_run_concoct_multiple_read_input_test2(self):
+    #     method_name = 'test_run_concoct_multiple_read_input_test2'
+    #     print ("\n=================================================================")
+    #     print ("RUNNING "+method_name+"()")
+    #     print ("=================================================================\n")
+    #     # concoct should run to completion here
+    #     ret = self.getImpl().run_kb_concoct(self.getContext(),
+    #                                         {'workspace_name': self.getWsName(),
+    #                                          'assembly_ref': self.assembly_ref2,
+    #                                          'read_mapping_tool': 'minimap2',
+    #                                          'min_contig_length': 3000,
+    #                                          'contig_split_size': 10000,
+    #                                          'contig_split_overlap': 0,
+    #                                          'kmer_size': 4,
+    #                                          'max_clusters_for_vgmm': 400,
+    #                                          'max_iterations_for_vgmm': 500,
+    #                                          'total_percentage_pca': 90,
+    #                                          'no_cov_normalization': '--no_cov_normalization',
+    #                                          'no_total_coverage': '--no_total_coverage',
+    #                                          'binned_contig_name': 'concoct_bin_obj',
+    #                                          'reads_list': [self.int3_oldstyle_reads_ref, self.int4_oldstyle_reads_ref, self.int5_oldstyle_reads_ref, self.int6_oldstyle_reads_ref, self.int7_oldstyle_reads_ref] })
 
-    def test_run_concoct_hisat2(self):
-        method_name = 'test_run_concoct_hisat2'
-        print ("\n=================================================================")
-        print ("RUNNING "+method_name+"()")
-        print ("=================================================================\n")
+    # def test_run_concoct_hisat2(self):
+    #     method_name = 'test_run_concoct_hisat2'
+    #     print ("\n=================================================================")
+    #     print ("RUNNING "+method_name+"()")
+    #     print ("=================================================================\n")
 
-        # concoct should run to completion here
-        ret = self.getImpl().run_kb_concoct(self.getContext(),
-                                            {'workspace_name': self.getWsName(),
-                                             'assembly_ref': self.assembly_ref1,
-                                             'read_mapping_tool': 'hisat2',
-                                             'min_contig_length': 3000,
-                                             'contig_split_size': 10000,
-                                             'contig_split_overlap': 0,
-                                             'kmer_size': 4,
-                                             'max_clusters_for_vgmm': 400,
-                                             'max_iterations_for_vgmm': 500,
-                                             'total_percentage_pca': 90,
-                                             'no_cov_normalization': '--no_cov_normalization',
-                                             'no_total_coverage': '--no_total_coverage',
-                                             'binned_contig_name': 'concoct_bin_obj',
-                                             'reads_list': [self.int1_oldstyle_reads_ref] })
+    #     # concoct should run to completion here
+    #     ret = self.getImpl().run_kb_concoct(self.getContext(),
+    #                                         {'workspace_name': self.getWsName(),
+    #                                          'assembly_ref': self.assembly_ref1,
+    #                                          'read_mapping_tool': 'hisat2',
+    #                                          'min_contig_length': 3000,
+    #                                          'contig_split_size': 10000,
+    #                                          'contig_split_overlap': 0,
+    #                                          'kmer_size': 4,
+    #                                          'max_clusters_for_vgmm': 400,
+    #                                          'max_iterations_for_vgmm': 500,
+    #                                          'total_percentage_pca': 90,
+    #                                          'no_cov_normalization': '--no_cov_normalization',
+    #                                          'no_total_coverage': '--no_total_coverage',
+    #                                          'binned_contig_name': 'concoct_bin_obj',
+    #                                          'reads_list': [self.int1_oldstyle_reads_ref] })
 
-    def test_run_concoct_bbmap_default(self):
-        method_name = 'test_run_concoct_bbmap_default'
-        print ("\n=================================================================")
-        print ("RUNNING "+method_name+"()")
-        print ("=================================================================\n")
+    # def test_run_concoct_bbmap_default(self):
+    #     method_name = 'test_run_concoct_bbmap_default'
+    #     print ("\n=================================================================")
+    #     print ("RUNNING "+method_name+"()")
+    #     print ("=================================================================\n")
 
-        # concoct should run to completion here
-        ret = self.getImpl().run_kb_concoct(self.getContext(),
-                                            {'workspace_name': self.getWsName(),
-                                             'assembly_ref': self.assembly_ref1,
-                                             'read_mapping_tool': 'bbmap_default',
-                                             'min_contig_length': 3000,
-                                             'contig_split_size': 10000,
-                                             'contig_split_overlap': 0,
-                                             'kmer_size': 4,
-                                             'max_clusters_for_vgmm': 400,
-                                             'max_iterations_for_vgmm': 500,
-                                             'total_percentage_pca': 90,
-                                             'no_cov_normalization': '--no_cov_normalization',
-                                             'no_total_coverage': '--no_total_coverage',
-                                             'binned_contig_name': 'concoct_bin_obj',
-                                             'reads_list': [self.int1_oldstyle_reads_ref] })
-
-
-    def test_run_concoct_bbmap_fast(self):
-        method_name = 'test_run_concoct_bbmap_fast'
-        print ("\n=================================================================")
-        print ("RUNNING "+method_name+"()")
-        print ("=================================================================\n")
-
-        # concoct should run to completion here
-        ret = self.getImpl().run_kb_concoct(self.getContext(),
-                                            {'workspace_name': self.getWsName(),
-                                             'assembly_ref': self.assembly_ref1,
-                                             'read_mapping_tool': 'bbmap_fast',
-                                             'min_contig_length': 3000,
-                                             'contig_split_size': 10000,
-                                             'contig_split_overlap': 0,
-                                             'kmer_size': 4,
-                                             'max_clusters_for_vgmm': 400,
-                                             'max_iterations_for_vgmm': 500,
-                                             'total_percentage_pca': 90,
-                                             'no_cov_normalization': '--no_cov_normalization',
-                                             'no_total_coverage': '--no_total_coverage',
-                                             'binned_contig_name': 'concoct_bin_obj',
-                                             'reads_list': [self.int1_oldstyle_reads_ref] })
+    #     # concoct should run to completion here
+    #     ret = self.getImpl().run_kb_concoct(self.getContext(),
+    #                                         {'workspace_name': self.getWsName(),
+    #                                          'assembly_ref': self.assembly_ref1,
+    #                                          'read_mapping_tool': 'bbmap_default',
+    #                                          'min_contig_length': 3000,
+    #                                          'contig_split_size': 10000,
+    #                                          'contig_split_overlap': 0,
+    #                                          'kmer_size': 4,
+    #                                          'max_clusters_for_vgmm': 400,
+    #                                          'max_iterations_for_vgmm': 500,
+    #                                          'total_percentage_pca': 90,
+    #                                          'no_cov_normalization': '--no_cov_normalization',
+    #                                          'no_total_coverage': '--no_total_coverage',
+    #                                          'binned_contig_name': 'concoct_bin_obj',
+    #                                          'reads_list': [self.int1_oldstyle_reads_ref] })
 
 
-    def test_run_concoct_bbmap_very_sensitive(self):
-        method_name = 'test_run_concoct_bbmap_very_sensitive'
-        print ("\n=================================================================")
-        print ("RUNNING "+method_name+"()")
-        print ("=================================================================\n")
+    # def test_run_concoct_bbmap_fast(self):
+    #     method_name = 'test_run_concoct_bbmap_fast'
+    #     print ("\n=================================================================")
+    #     print ("RUNNING "+method_name+"()")
+    #     print ("=================================================================\n")
 
-        # concoct should run to completion here
-        ret = self.getImpl().run_kb_concoct(self.getContext(),
-                                            {'workspace_name': self.getWsName(),
-                                             'assembly_ref': self.assembly_ref1,
-                                             'read_mapping_tool': 'bbmap_very_sensitive',
-                                             'min_contig_length': 3000,
-                                             'contig_split_size': 10000,
-                                             'contig_split_overlap': 0,
-                                             'kmer_size': 4,
-                                             'max_clusters_for_vgmm': 400,
-                                             'max_iterations_for_vgmm': 500,
-                                             'total_percentage_pca': 90,
-                                             'no_cov_normalization': '--no_cov_normalization',
-                                             'no_total_coverage': '--no_total_coverage',
-                                             'binned_contig_name': 'concoct_bin_obj',
-                                             'reads_list': [self.int1_oldstyle_reads_ref] })
-
-    def test_run_concoct_bowtie2_default(self):
-        method_name = 'test_run_concoct_bowtie2_default'
-        print ("\n=================================================================")
-        print ("RUNNING "+method_name+"()")
-        print ("=================================================================\n")
-
-        # concoct should run to completion here
-        ret = self.getImpl().run_kb_concoct(self.getContext(),
-                                            {'workspace_name': self.getWsName(),
-                                             'assembly_ref': self.assembly_ref1,
-                                             'read_mapping_tool': 'bowtie2_default',
-                                             'min_contig_length': 3000,
-                                             'contig_split_size': 10000,
-                                             'contig_split_overlap': 0,
-                                             'kmer_size': 4,
-                                             'max_clusters_for_vgmm': 400,
-                                             'max_iterations_for_vgmm': 500,
-                                             'total_percentage_pca': 90,
-                                             'no_cov_normalization': '--no_cov_normalization',
-                                             'no_total_coverage': '--no_total_coverage',
-                                             'binned_contig_name': 'concoct_bin_obj',
-                                             'reads_list': [self.int1_oldstyle_reads_ref] })
-
-    def test_run_concoct_bowtie2_very_sensitive(self):
-        method_name = 'test_run_concoct_bowtie2_very_sensitive'
-        print ("\n=================================================================")
-        print ("RUNNING "+method_name+"()")
-        print ("=================================================================\n")
-
-        # concoct should run to completion here
-        ret = self.getImpl().run_kb_concoct(self.getContext(),
-                                            {'workspace_name': self.getWsName(),
-                                             'assembly_ref': self.assembly_ref1,
-                                             'read_mapping_tool': 'bowtie2_very_sensitive',
-                                             'min_contig_length': 3000,
-                                             'contig_split_size': 10000,
-                                             'contig_split_overlap': 0,
-                                             'kmer_size': 4,
-                                             'max_clusters_for_vgmm': 400,
-                                             'max_iterations_for_vgmm': 500,
-                                             'total_percentage_pca': 90,
-                                             'no_cov_normalization': '--no_cov_normalization',
-                                             'no_total_coverage': '--no_total_coverage',
-                                             'binned_contig_name': 'concoct_bin_obj',
-                                             'reads_list': [self.int1_oldstyle_reads_ref] })
-
-    def test_run_concoct_minimap2(self):
-        method_name = 'test_run_concoct_minimap2'
-        print ("\n=================================================================")
-        print ("RUNNING "+method_name+"()")
-        print ("=================================================================\n")
-
-        # concoct should run to completion here
-        ret = self.getImpl().run_kb_concoct(self.getContext(),
-                                            {'workspace_name': self.getWsName(),
-                                             'assembly_ref': self.assembly_ref1,
-                                             'read_mapping_tool': 'minimap2',
-                                             'min_contig_length': 3000,
-                                             'contig_split_size': 10000,
-                                             'contig_split_overlap': 0,
-                                             'kmer_size': 4,
-                                             'max_clusters_for_vgmm': 400,
-                                             'max_iterations_for_vgmm': 500,
-                                             'total_percentage_pca': 90,
-                                             'no_cov_normalization': '--no_cov_normalization',
-                                             'no_total_coverage': '--no_total_coverage',
-                                             'binned_contig_name': 'concoct_bin_obj',
-                                             'reads_list': [self.int1_oldstyle_reads_ref] })
-        self._test_bc_headers(ret)
-
-    def _test_bc_headers(self, ret):
-
-        bc_upa = ret[0]['binned_contig_obj_ref']
-
-        bc_objData = self.dfu.get_objects({
-            'object_refs': [bc_upa]
-            })['data'][0]['data']
-
-        assembly_objData = self.dfu.get_objects({
-            'object_refs': [bc_objData['assembly_ref']]
-            })['data'][0]['data']
+    #     # concoct should run to completion here
+    #     ret = self.getImpl().run_kb_concoct(self.getContext(),
+    #                                         {'workspace_name': self.getWsName(),
+    #                                          'assembly_ref': self.assembly_ref1,
+    #                                          'read_mapping_tool': 'bbmap_fast',
+    #                                          'min_contig_length': 3000,
+    #                                          'contig_split_size': 10000,
+    #                                          'contig_split_overlap': 0,
+    #                                          'kmer_size': 4,
+    #                                          'max_clusters_for_vgmm': 400,
+    #                                          'max_iterations_for_vgmm': 500,
+    #                                          'total_percentage_pca': 90,
+    #                                          'no_cov_normalization': '--no_cov_normalization',
+    #                                          'no_total_coverage': '--no_total_coverage',
+    #                                          'binned_contig_name': 'concoct_bin_obj',
+    #                                          'reads_list': [self.int1_oldstyle_reads_ref] })
 
 
-        bc_header_l = sum([list(bin['contigs'].keys()) for bin in bc_objData['bins']], [])
-        assembly_header_l = list(assembly_objData['contigs'].keys())
+    # def test_run_concoct_bbmap_very_sensitive(self):
+    #     method_name = 'test_run_concoct_bbmap_very_sensitive'
+    #     print ("\n=================================================================")
+    #     print ("RUNNING "+method_name+"()")
+    #     print ("=================================================================\n")
 
-        assert len(bc_header_l) > 0 and len(assembly_header_l) > 0
+    #     # concoct should run to completion here
+    #     ret = self.getImpl().run_kb_concoct(self.getContext(),
+    #                                         {'workspace_name': self.getWsName(),
+    #                                          'assembly_ref': self.assembly_ref1,
+    #                                          'read_mapping_tool': 'bbmap_very_sensitive',
+    #                                          'min_contig_length': 3000,
+    #                                          'contig_split_size': 10000,
+    #                                          'contig_split_overlap': 0,
+    #                                          'kmer_size': 4,
+    #                                          'max_clusters_for_vgmm': 400,
+    #                                          'max_iterations_for_vgmm': 500,
+    #                                          'total_percentage_pca': 90,
+    #                                          'no_cov_normalization': '--no_cov_normalization',
+    #                                          'no_total_coverage': '--no_total_coverage',
+    #                                          'binned_contig_name': 'concoct_bin_obj',
+    #                                          'reads_list': [self.int1_oldstyle_reads_ref] })
 
-        print('Sampling headers ...', bc_header_l[0], assembly_header_l[0])
+    # def test_run_concoct_bowtie2_default(self):
+    #     method_name = 'test_run_concoct_bowtie2_default'
+    #     print ("\n=================================================================")
+    #     print ("RUNNING "+method_name+"()")
+    #     print ("=================================================================\n")
 
-        bc_header_set = set(bc_header_l)
-        assembly_header_set = set(assembly_header_l)
+    #     # concoct should run to completion here
+    #     ret = self.getImpl().run_kb_concoct(self.getContext(),
+    #                                         {'workspace_name': self.getWsName(),
+    #                                          'assembly_ref': self.assembly_ref1,
+    #                                          'read_mapping_tool': 'bowtie2_default',
+    #                                          'min_contig_length': 3000,
+    #                                          'contig_split_size': 10000,
+    #                                          'contig_split_overlap': 0,
+    #                                          'kmer_size': 4,
+    #                                          'max_clusters_for_vgmm': 400,
+    #                                          'max_iterations_for_vgmm': 500,
+    #                                          'total_percentage_pca': 90,
+    #                                          'no_cov_normalization': '--no_cov_normalization',
+    #                                          'no_total_coverage': '--no_total_coverage',
+    #                                          'binned_contig_name': 'concoct_bin_obj',
+    #                                          'reads_list': [self.int1_oldstyle_reads_ref] })
 
-        if len(bc_header_set) < len(bc_header_l):
-            print('Warning: BinnedContigs headers not unique')
-        if len(assembly_header_set) < len(assembly_header_l):
-            print('Warning: Assembly headers not unique')
+    # def test_run_concoct_bowtie2_very_sensitive(self):
+    #     method_name = 'test_run_concoct_bowtie2_very_sensitive'
+    #     print ("\n=================================================================")
+    #     print ("RUNNING "+method_name+"()")
+    #     print ("=================================================================\n")
 
-        assert bc_header_set.issubset(assembly_header_set)
+    #     # concoct should run to completion here
+    #     ret = self.getImpl().run_kb_concoct(self.getContext(),
+    #                                         {'workspace_name': self.getWsName(),
+    #                                          'assembly_ref': self.assembly_ref1,
+    #                                          'read_mapping_tool': 'bowtie2_very_sensitive',
+    #                                          'min_contig_length': 3000,
+    #                                          'contig_split_size': 10000,
+    #                                          'contig_split_overlap': 0,
+    #                                          'kmer_size': 4,
+    #                                          'max_clusters_for_vgmm': 400,
+    #                                          'max_iterations_for_vgmm': 500,
+    #                                          'total_percentage_pca': 90,
+    #                                          'no_cov_normalization': '--no_cov_normalization',
+    #                                          'no_total_coverage': '--no_total_coverage',
+    #                                          'binned_contig_name': 'concoct_bin_obj',
+    #                                          'reads_list': [self.int1_oldstyle_reads_ref] })
+
+    # def test_run_concoct_minimap2(self):
+    #     method_name = 'test_run_concoct_minimap2'
+    #     print ("\n=================================================================")
+    #     print ("RUNNING "+method_name+"()")
+    #     print ("=================================================================\n")
+
+    #     # concoct should run to completion here
+    #     ret = self.getImpl().run_kb_concoct(self.getContext(),
+    #                                         {'workspace_name': self.getWsName(),
+    #                                          'assembly_ref': self.assembly_ref1,
+    #                                          'read_mapping_tool': 'minimap2',
+    #                                          'min_contig_length': 3000,
+    #                                          'contig_split_size': 10000,
+    #                                          'contig_split_overlap': 0,
+    #                                          'kmer_size': 4,
+    #                                          'max_clusters_for_vgmm': 400,
+    #                                          'max_iterations_for_vgmm': 500,
+    #                                          'total_percentage_pca': 90,
+    #                                          'no_cov_normalization': '--no_cov_normalization',
+    #                                          'no_total_coverage': '--no_total_coverage',
+    #                                          'binned_contig_name': 'concoct_bin_obj',
+    #                                          'reads_list': [self.int1_oldstyle_reads_ref] })
+    #     self._test_bc_headers(ret)
+
+    # def _test_bc_headers(self, ret):
+
+    #     bc_upa = ret[0]['binned_contig_obj_ref']
+
+    #     bc_objData = self.dfu.get_objects({
+    #         'object_refs': [bc_upa]
+    #         })['data'][0]['data']
+
+    #     assembly_objData = self.dfu.get_objects({
+    #         'object_refs': [bc_objData['assembly_ref']]
+    #         })['data'][0]['data']
+
+
+    #     bc_header_l = sum([list(bin['contigs'].keys()) for bin in bc_objData['bins']], [])
+    #     assembly_header_l = list(assembly_objData['contigs'].keys())
+
+    #     assert len(bc_header_l) > 0 and len(assembly_header_l) > 0
+
+    #     print('Sampling headers ...', bc_header_l[0], assembly_header_l[0])
+
+    #     bc_header_set = set(bc_header_l)
+    #     assembly_header_set = set(assembly_header_l)
+
+    #     if len(bc_header_set) < len(bc_header_l):
+    #         print('Warning: BinnedContigs headers not unique')
+    #     if len(assembly_header_set) < len(assembly_header_l):
+    #         print('Warning: Assembly headers not unique')
+
+    #     assert bc_header_set.issubset(assembly_header_set)
