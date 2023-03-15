@@ -483,9 +483,6 @@ class ConcoctUtil:
             log("Removing fastq")
             # remove fastq
             os.remove(os.path.join(self.scratch, fastq))
-            # remove fastq.gz, if exists
-            fastqgz = fastq + ".gz"
-            os.remove(os.path.join(self.scratch, fastqgz))
 
         return sorted_bam_file_list
 
